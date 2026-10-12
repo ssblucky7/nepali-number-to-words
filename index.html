@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Nepali Number to Words Converter — Free Online Tool (संख्या शब्दमा)</title>
+  <meta name="description" content="Convert any number to words in Nepali (Unicode) and English instantly. Free online Nepali number to words converter with lakh, crore, arab & kharab system, paisa support. Works offline as an installable app." />
+  <meta name="keywords" content="nepali number to words, number to words nepali, संख्या शब्दमा, nepali amount in words, lakh crore converter, nepali currency words, paisa converter" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="WebTodo Tools" />
+  <link rel="canonical" href="https://nepali-number-to-words-ssb-lucky-7s-projects.vercel.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Nepali Number to Words" />
+  <meta property="og:title" content="Nepali Number to Words Converter — Free Online Tool" />
+  <meta property="og:description" content="Type a number, get it in Nepali & English words instantly. Lakh, crore, arab, kharab + paisa. Free, fast, works offline." />
+  <meta property="og:url" content="https://nepali-number-to-words-ssb-lucky-7s-projects.vercel.app/" />
+  <meta property="og:image" content="https://nepali-number-to-words-ssb-lucky-7s-projects.vercel.app/icons/icon-512.png" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Nepali Number to Words Converter — Free Online Tool" />
+  <meta name="twitter:description" content="Convert numbers to Nepali & English words instantly. Free, fast, installable, works offline." />
+  <meta name="twitter:image" content="https://nepali-number-to-words-ssb-lucky-7s-projects.vercel.app/icons/icon-512.png" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#c8163a" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="No. to Words" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Structured data: WebApplication + FAQ (SEO / GEO / AEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Nepali Number to Words Converter",
+    "alternateName": "संख्या शब्दमा",
+    "url": "https://nepali-number-to-words-ssb-lucky-7s-projects.vercel.app/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "inLanguage": ["en", "ne"],
+    "description": "Free online tool that converts numbers into words in Nepali (Unicode) and English using the Nepali numbering system (thousand, lakh, crore, arab, kharab), with paisa support for decimals."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I convert a number to words in Nepali?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Type the number into the converter box. It instantly shows the amount in Nepali Unicode words (e.g. 12345 becomes बाह्र हजार तीन सय पैंतालिस रुपैंया) and in English words using the Nepali system." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it support lakh, crore, arab and kharab?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The converter uses the Nepali/South-Asian numbering system: thousand (हजार), lakh (लाख), crore (करोड), arab (अरब) and kharab (खरब), up to 13 digits." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can it convert decimal amounts with paisa?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Decimals up to 2 places are converted to paisa — e.g. 123.45 becomes एक सय तेइस रुपैंया, पैंतालिस पैसा." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the app work offline?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. It is an installable PWA — after your first visit you can install it on your phone or desktop and use it fully offline." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#converter">Skip to converter</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">१२३</span>
+        <span class="brand-name">Nepali Number <em>to Words</em></span>
+      </div>
+      <button id="installBtn" class="install-btn" hidden>⤓ Install App</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Nepali Number to Words Converter</h1>
+      <p class="lede">Type any number and get it instantly in <strong>Nepali words</strong> (Unicode) and <strong>English words</strong> — with the lakh&nbsp;· crore&nbsp;· arab&nbsp;· kharab system and paisa support. Free, fast, and works offline once installed.</p>
+    </section>
+
+    <section id="converter" class="card" aria-label="Number to words converter">
+      <form id="converterForm" autocomplete="off">
+        <label class="field-label" for="numberInput">Enter a number</label>
+        <div class="input-row">
+          <input id="numberInput" class="number-input" type="text" inputmode="decimal"
+                 placeholder="e.g. 12345" autofocus aria-describedby="hint" />
+          <button type="submit" class="btn-primary">Convert</button>
+        </div>
+        <p id="hint" class="hint">Up to 13 digits + 2 decimals. Conversion happens as you type.</p>
+        <div class="chips" aria-label="Try a sample">
+          <span>Try:</span>
+          <button type="button" class="chip" data-sample="123">123</button>
+          <button type="button" class="chip" data-sample="12345">12,345</button>
+          <button type="button" class="chip" data-sample="2500000">25,00,000</button>
+          <button type="button" class="chip" data-sample="12345678">1,23,45,678</button>
+          <button type="button" class="chip" data-sample="999.99">999.99</button>
+        </div>
+      </form>
+
+      <p id="errorBox" class="error" role="alert" hidden></p>
+
+      <div class="outputs">
+        <div class="output-block">
+          <div class="output-head">
+            <h2>🇳🇵 Nepali (Unicode)</h2>
+            <button type="button" class="btn-copy" data-copy="resultNepali">Copy</button>
+          </div>
+          <output id="resultNepali" class="output nepali" for="numberInput" aria-live="polite"></output>
+        </div>
+        <div class="output-block">
+          <div class="output-head">
+            <h2>🇬🇧 English</h2>
+            <button type="button" class="btn-copy" data-copy="resultEnglish">Copy</button>
+          </div>
+          <output id="resultEnglish" class="output" for="numberInput" aria-live="polite"></output>
+        </div>
+      </div>
+    </section>
+
+    <section class="card how" aria-label="How it works">
+      <h2>How it works</h2>
+      <ol>
+        <li><strong>Type a number</strong> — results appear instantly as you type, no button needed.</li>
+        <li><strong>Get two formats</strong> — Nepali Unicode words and English words side by side.</li>
+        <li><strong>Copy</strong> either result with one tap for cheques, invoices or documents.</li>
+      </ol>
+      <p class="note">Uses the Nepali numbering system: हजार (thousand) → लाख (lakh) → करोड (crore) → अरब (arab) → खरब (kharab). Decimals become पैसा (paisa).</p>
+    </section>
+
+    <section class="card faq" aria-label="Frequently asked questions">
+      <h2>Frequently asked questions</h2>
+      <details>
+        <summary>How do I convert a number to words in Nepali?</summary>
+        <p>Type the number into the converter box above. It instantly shows the amount in Nepali Unicode words — for example, 12345 becomes <span lang="ne">बाह्र हजार तीन सय पैंतालिस रुपैंया</span>.</p>
+      </details>
+      <details>
+        <summary>Does it support lakh, crore, arab and kharab?</summary>
+        <p>Yes. The converter follows the Nepali/South-Asian system — thousand (हजार), lakh (लाख), crore (करोड), arab (अरब) and kharab (खरब) — supporting numbers up to 13 digits.</p>
+      </details>
+      <details>
+        <summary>Can it convert decimal amounts with paisa?</summary>
+        <p>Yes. Up to two decimal places are converted to paisa — 123.45 becomes <span lang="ne">एक सय तेइस रुपैंया, पैंतालिस पैसा</span>.</p>
+      </details>
+      <details>
+        <summary>Does the app work offline?</summary>
+        <p>Yes. This is an installable PWA. Tap “Install App” (or use your browser’s install option) and it works fully offline after the first visit.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Free Nepali number-to-words converter · Works offline as an installable app</p>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
